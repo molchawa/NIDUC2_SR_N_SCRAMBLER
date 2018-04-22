@@ -1,4 +1,4 @@
-
+%?wicz? gita, potem usun? ~Piotrek
 function frame = zak_los_skok (frame)
 
 c_bit=frame; % ciag binarny
