@@ -1,10 +1,10 @@
 if haveFrame(frame) == false
   return;
-endif
+end
 receivedData = [frame(9:frameLength+8)];
-if parityBit(receivedData) != frame(length(frame))
+if parityBit(receivedData) ~= frame(length(frame))
   return;
-endif
+end
 
 frameIsBad = false;
 
