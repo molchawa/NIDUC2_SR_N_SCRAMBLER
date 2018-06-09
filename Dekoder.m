@@ -8,5 +8,9 @@ end
 
 frameIsBad = false;
 
-receivedData = coding(receivedData);
+if isScramblerAdditive == true
+  receivedData = coding(receivedData);
+else
+  receivedData = decodingMulti(receivedData);
+end
 newData = [newData, receivedData];
