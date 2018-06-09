@@ -1,5 +1,5 @@
 
-function newData = codingMulti (data)
+function newData = decodingMulti (data)
 
   key = [1 0 0 1 0 1 0 1 0 0 0 0 0 0 0 1 0 0 1 0 1 0 1]; 
   indexKey = 1;

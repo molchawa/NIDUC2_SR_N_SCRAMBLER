@@ -2,7 +2,7 @@ frameLength = 30; % to jest dlugosc ramki bez naglowka (8 bitow) i stopki (1 bit
 data = zeros(1, 200);
 newData = [];%tu beda otrzymane dane
 transmissionEnd = false;
-isScramblerAdditive = true;
+isScramblerAdditive = false;
 licznik=0;
 while transmissionEnd == false
   Enkoder;

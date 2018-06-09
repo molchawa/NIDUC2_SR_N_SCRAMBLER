@@ -7,14 +7,12 @@ function newData = codingMulti (data)
     while indexData<=length(data)
       xoredBit = xor(key(18), key(23));
       xoredBit = xor(xoredBit, data(indexData));
-      data(indexData) = xoredBit;
+      newData(indexData) = xoredBit;
       indexData = indexData+1;
       for i = 0:21
         key(23 - i) = key(22 - i);  
       end
       key(1) = xoredBit;
     end
-      
-      newData = data;
       
 end
