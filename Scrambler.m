@@ -3,13 +3,14 @@ data = zeros(1, 200);
 newData = [];%tu beda otrzymane dane
 transmissionEnd = false;
 isScramblerAdditive = false;
+crc = 8;
 licznik=0;
 while transmissionEnd == false
   Enkoder;
   licznik=licznik+1
   frameIsBad = true;
   while frameIsBad
-    frame = sendFrame(dataToFrame, isScramblerAdditive);
+    frame = sendFrame(dataToFrame, isScramblerAdditive, crc);
     %zaklocenia
     Dekoder;
   end

@@ -1,9 +1,19 @@
 if haveFrame(frame) == false
   return;
 end
-receivedData = [frame(9:frameLength+8)];
-if parityBit(receivedData) ~= frame(length(frame))
-  return;
+receivedData = [frame(9:length(frame))];
+if crc == 1
+  if parityBit(receivedData) ~= frame(length(frame))
+    return;
+  end
+  receivedData = [frame(9:length(frame)-1)];
+end
+
+if crc == 8
+  if crcDividing(receivedData) ~= 0
+    return;
+   end
+   receivedData = [frame(9:length(frame)-8)];
 end
 
 frameIsBad = false;
