@@ -1,6 +1,8 @@
 if haveFrame(frame) == false
+  counterWithoutFrame = counterWithoutFrame+1;
   return;
 end
+counterWithoutFrame = 0;
 receivedData = [frame(9:length(frame))];
 
 if crc == 0
@@ -10,21 +12,24 @@ end
 
 if crc == 1
   if parityBit(receivedData) ~= frame(length(frame))
-    return;
+    counterBadFrame = counterBadFrame + 1;
   end
-  lengRData = length(frame)-1;
   receivedData = [frame(9:length(frame)-1)];
 end
 
 if crc == 8
   if crcDividing(receivedData) ~= 0
-    return;
+    counterBadFrame = counterBadFrame + 1;
    end
    receivedData = [frame(9:length(frame)-8)];
 end
 
+if(counterBadFrame > 0 && counterBadFrame < AmountBadFrame)
+return;
+end
 
 frameIsBad = false;
+counterBadFrame = 0;
 
 if isScramblerAdditive == true
   receivedData = coding(receivedData);
