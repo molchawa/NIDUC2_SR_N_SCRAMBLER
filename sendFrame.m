@@ -1,7 +1,23 @@
-function frame = sendFrame (data)
+function frame = sendFrame (data, isAdditive, crc)
   
-  scrambledData = coding(data);
+ 
   startFlag = [0 1 0 0 0 1 1 1];
-  controlSum = parityBit(data); %w przyszlosci powinno byc tu CRC-8
+  
+  
+  if isAdditive == true
+    scrambledData = coding(data);
+  else
+    scrambledData = codingMulti(data);
+  end
+  
+  
+  if crc == 1
+  controlSum = parityBit(scrambledData);
+  end
+  if crc == 8
+  controlSum = CRC(scrambledData);
+  end
+  
+  
   frame = [startFlag, scrambledData, controlSum];
 end

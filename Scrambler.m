@@ -2,18 +2,16 @@ frameLength = 30; % to jest dlugosc ramki bez naglowka (8 bitow) i stopki (1 bit
 data = zeros(1, 200);
 newData = [];%tu beda otrzymane dane
 transmissionEnd = false;
+isScramblerAdditive = false;
+crc = 8;
 licznik=0;
 while transmissionEnd == false
   Enkoder;
   licznik=licznik+1
   frameIsBad = true;
   while frameIsBad
-    frame = sendFrame(dataToFrame);
-
+    frame = sendFrame(dataToFrame, isScramblerAdditive, crc);
     %zaklocenia
- 
-	frame= c_bit1
- 
     Dekoder;
   end
 end
