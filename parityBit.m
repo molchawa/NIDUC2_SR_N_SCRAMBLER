@@ -2,7 +2,7 @@
 function [isEven] = parityBit (data)
   sum = 0;
   isEven = 0;
-  for i = 1:length(data)
+  for i = length(data):1
     if data(i) == 1
       sum = sum + 1;
     end

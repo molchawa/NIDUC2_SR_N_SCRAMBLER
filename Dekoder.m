@@ -2,10 +2,17 @@ if haveFrame(frame) == false
   return;
 end
 receivedData = [frame(9:length(frame))];
+
+if crc == 0
+   receivedData = [frame(9:length(frame))];
+end
+
+
 if crc == 1
   if parityBit(receivedData) ~= frame(length(frame))
     return;
   end
+  lengRData = length(frame)-1;
   receivedData = [frame(9:length(frame)-1)];
 end
 
@@ -15,6 +22,7 @@ if crc == 8
    end
    receivedData = [frame(9:length(frame)-8)];
 end
+
 
 frameIsBad = false;
 

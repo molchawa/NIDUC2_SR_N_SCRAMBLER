@@ -1,9 +1,10 @@
-frameLength = 30; % to jest dlugosc ramki bez naglowka (8 bitow) i stopki (1 bit), lacznie 39 bitow
-data = zeros(1, 200);
-newData = [];%tu beda otrzymane dane
+frameLength = 30; % d³ugoœæ danych u¿ytecznych w ramce
+data = zeros(1, 200); %dane wejœciowe
+newData = [];% dane wyjœciowe
 transmissionEnd = false;
-isScramblerAdditive = false;
-crc = 8;
+isScramblerAdditive = false; %true - addytywny, false - multiplikatywny
+crc = 1; % 1 - bit parzystoœci (crc-1), 8 - crc-8, 0 - nic 
+% to wy¿ej tak dziwnie, bo myœla³em o innych crc jeszce, ale to ju¿ nie w tym projekcie xD
 licznik=0;
 while transmissionEnd == false
   Enkoder;
@@ -15,7 +16,3 @@ while transmissionEnd == false
     Dekoder;
   end
 end
-
-
-%ostatnia ramka powinna byc krotsza, bo przy uzupelnianiu zerami, moze nastapic blad przy odczytywaniu
-% w sensie wyjscie jest dluzsze od wejscia
