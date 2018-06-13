@@ -318,7 +318,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
             set(handles.listbox4, 'String', new_lb4);
             Dekoder;
             if counterWithoutFrame >= amountWithoutFrame
-                transmissionEnd = true;
+                frameIsBad = false;
             end
         end
     end
