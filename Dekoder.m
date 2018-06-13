@@ -1,5 +1,9 @@
 if haveFrame(frame) == false
   counterWithoutFrame = counterWithoutFrame+1;
+    if (counterWithoutFrame >= amountWithoutFrame)
+      frameIsBad = false;
+      transmissionEnd = true;
+    end
   return;
 end
 counterWithoutFrame = 0;
@@ -24,7 +28,7 @@ if crc == 8
    receivedData = [frame(9:length(frame)-8)];
 end
 
-if(counterBadFrame > 0 && counterBadFrame < amountBadFrame)
+if((counterBadFrame > 0) && (counterBadFrame < amountBadFrame))
 return;
 end
 

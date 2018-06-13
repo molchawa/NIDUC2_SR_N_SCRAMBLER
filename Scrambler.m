@@ -1,6 +1,6 @@
-frameLength = 160; % d³ugoœæ danych u¿ytecznych w ramce
-dataSize = 100000; % rozmiar danych wejœciowych
-amountWithoutFrame = 100; %wielkoœæ charakteryzuj¹ca czas, po którym odbiornik zakoñczy nas³uchiwanie
+frameLength = 30; % d³ugoœæ danych u¿ytecznych w ramce
+dataSize = 30; % rozmiar danych wejœciowych
+amountWithoutFrame = 10; %wielkoœæ charakteryzuj¹ca czas, po którym odbiornik zakoñczy nas³uchiwanie
 amountBadFrame = 10; %maksymalna iloœæ retransmisji uszkodzonej ramki
 data = round(rand(1,dataSize)); %dane wejœciowe
 newData = [];% dane wyjœciowe
@@ -17,8 +17,5 @@ while transmissionEnd == false
     frame = sendFrame(dataToFrame, isScramblerAdditive, crc);
     %zaklocenia
     Dekoder;
-    if counterWithoutFrame >= amountWithoutFrame
-      transmissionEnd = true;
-    end
   end
 end
