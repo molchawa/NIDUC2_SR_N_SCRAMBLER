@@ -1,10 +1,10 @@
 
-function frame1 = zak_cykl (frame)
+function frame = zak_cykl (frame)
 
  c_bit=frame; % ciag binarny
-    c_bit1=c_bit
+    c_bit1=c_bit;
     dl_c=length(c_bit); %dlugosc 
-    skok=round(dl_c/10)
+    skok=floor(dl_c/10);
     
     licz=1;
     for i=1:dl_c %zamiana bitow
@@ -19,4 +19,5 @@ function frame1 = zak_cykl (frame)
             licz=licz+1;
         end
     end
+    frame = c_bit1;
 end
