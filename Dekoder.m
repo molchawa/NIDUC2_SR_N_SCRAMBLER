@@ -24,7 +24,7 @@ if crc == 8
    receivedData = [frame(9:length(frame)-8)];
 end
 
-if(counterBadFrame > 0 && counterBadFrame < AmountBadFrame)
+if(counterBadFrame > 0 && counterBadFrame < amountBadFrame)
 return;
 end
 
